@@ -1,0 +1,39 @@
+﻿@model List<SehirViewModel>
+@{
+    ViewBag.Title = "Sehirler";
+}
+
+<h1>
+    Sehirler
+</h1>
+
+<table id="tblSehirler">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Sehir Ad</th>
+            <th>Bolge Ad</th>
+            <th>Nufus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var sehir in Model)
+        {
+            <tr>
+                <td>@sehir.Id</td>
+                <td>@sehir.SehirAd</td>
+                <td>@sehir.BolgeAd</td>
+                <td>@sehir.Nufus</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        const tblSehirler = document.getElementById('tblSehirler');
+        if (tblSehirler) {
+            new simpleDatatables.DataTable(tblSehirler);
+        }
+    </script>
+}
